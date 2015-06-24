@@ -20,24 +20,19 @@ describe("home page", function() {
 
   describe("typing in box and clicking button", function() {
 
-    var proposal = "Eat more chips";
+    var proposalName = "Eat more chips";
 
     before(function() {
-      $("textarea").val(proposal);
+      $("textarea").val(proposalName);
       $("button").click();
     });
 
-    it("should add a row to the table", function() {
-      expect($("table tr").length).to.equal(1);
-    });
-
-    it("the row should contain the proposal", function() {
-      expect($("table tr td").html()).to.equal(proposal);
+    it("should add a row to the table containing the proposal name", function() {
+      expect($("table tr td").html()).to.equal(proposalName);
     });
 
     it("should clear the textarea", function() {
       expect($("textarea").val()).to.equal("");
-      expect($("table tr td").html()).to.equal(proposal);
     });
   });
 
