@@ -6,6 +6,7 @@ $(function() {
 
   var app = new Marionette.Application();
 
+  // Overall layout, with top and main regions
   var AppLayout = Marionette.LayoutView.extend({
     el: "#app",
     template: "#layout-template",
@@ -15,29 +16,36 @@ $(function() {
     }
   });
 
+  // Collection of proposals
   var proposals = new Backbone.Collection();
 
+  // View for a single proposal (a row in the propsals table)
   var ProposalView = Marionette.ItemView.extend({
     tagName: "tr",
     template: "#proposal-view-template"
   });
 
+  // View for the list of proposals
   var ProposalList = Marionette.CollectionView.extend({
     tagName: "table",
     childView: ProposalView
   });
 
-
+  // View for the Add Proposal form
   var ProposalForm = Marionette.ItemView.extend({
     template: "#proposal-form-template",
     events: {
       "click button": "addProposal"
     },
     addProposal: function() {
-      proposals.add(this.$("textarea").val());
+      proposals.add({
+        name: this.$("textarea").val()
+      });
+      this.$("textarea").val("");
     }
   });
 
+  // Initialisation
   app.on("start", function() {
     var appLayout = new AppLayout();
     appLayout.render();

@@ -30,6 +30,15 @@ describe("home page", function() {
     it("should add a row to the table", function() {
       expect($("table tr").length).to.equal(1);
     });
+
+    it("the row should contain the proposal", function() {
+      expect($("table tr td").html()).to.equal(proposal);
+    });
+
+    it("should clear the textarea", function() {
+      expect($("textarea").val()).to.equal("");
+      expect($("table tr td").html()).to.equal(proposal);
+    });
   });
 
 });

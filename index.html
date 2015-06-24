@@ -7,12 +7,7 @@
 </head>
 <body>
 
-  <!-- testing -->
-  <div id="mocha"><p><a href=".">Index</a></p></div>
-  <div id="messages"></div><!-- mocha messages-->
-  <!-- /testing -->
-
-  <div id="app" style="display: none"></div>
+  <div id="app"></div>
   <script id="layout-template" type="text/template">
     <div id = "top"></div>
     <div id = "main"></div>
@@ -30,15 +25,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.1/backbone.marionette.min.js"></script>
-  <script src="../app.js"></script>
+  <script src="app.js"></script>
 
-  <!-- testing-->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/sinon.js/1.7.3/sinon-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.2.1/mocha.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.1.1/chai.min.js"></script>
-  <script>mocha.setup('bdd')</script>
-  <script src="tests.js"></script>
-  <script>mocha.run();</script>
-  <!-- /testing -->
 </body>
 </html>
