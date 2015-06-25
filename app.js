@@ -26,9 +26,11 @@ $(function() {
   });
 
   // View for the list of proposals
-  var ProposalList = Marionette.CollectionView.extend({
-    tagName: "table",
-    childView: ProposalView
+  var ProposalList = Marionette.CompositeView.extend({
+    tagName: "div",
+    template: "#proposal-list-template",
+    childView: ProposalView,
+    childViewContainer: "#container"
   });
 
   // View for the Add Proposal form

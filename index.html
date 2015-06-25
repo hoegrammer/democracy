@@ -13,7 +13,18 @@
     <div id = "main"></div>
   </script>
   <script id="proposal-form-template" type="text/template">
-    <textarea /><button>Add Proposal</button>
+    <textarea />
+    <div class="button-container">
+      <button>Add Proposal</button>
+    </div>
+  </script>
+  <script id="proposal-list-template" type="text/template">
+    <table>
+      <thead> 
+        <tr><th>Proposals</th></tr>
+      </thead>
+      <tbody id = "container"></tbody>
+    </table>
   </script>
   <script id ="proposal-view-template" type="text/template">
     <td><%= name %></td>
