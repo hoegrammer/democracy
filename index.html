@@ -30,9 +30,17 @@
     <td><%= name %></td>
   </script>
   <script id="login-form-template" type="text/template">
-    <input type = "text" class = "username" />
-    <input type = "text" class = "password" />
-    <button>Login</button>
+    <div class = 'form-row'>
+      <p><label for = "username">Username</label></p>
+      <p><input type = "text" id = "username" /></p>
+    </div>
+    <div class = 'form-row'>
+      <p><label for = "password">Password</label></p>
+      <p><input type = "password" id = "password" /></p>
+    </div>
+    <div class = 'form-row'>
+      <p><button>Login</button></p>
+    </p>
   </script>
   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>

@@ -27,6 +27,20 @@ textarea {
   height: 5em;
 }
 
-.button-container {
-  text-align: center;
+input, button {
+  height: 50px;
+}
+
+button {
+  width: 150px;
+}
+
+input {
+  width: 10em;
+  font-size: 2em;
+}
+
+.form-row {
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
