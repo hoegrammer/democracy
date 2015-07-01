@@ -20,6 +20,11 @@
   <script id="proposal-form-template" type="text/template">
     <textarea /><button>Add Proposal</button>
   </script>
+  <script id="login-form-template" type="text/template">
+    <input type = "text" class = "username" />
+    <input type = "text" class = "password" />
+    <button>Login</button>
+  </script>
   <script id="proposal-list-template" type="text/template">
     <table>
       <thead> 
@@ -45,7 +50,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.2.1/mocha.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.1.1/chai.min.js"></script>
   <script>mocha.setup('bdd')</script>
-  <script src="tests.js"></script>
+<!--  <script src="homepage.js"></script>-->
+  <script src="login.js"></script>
   <script>mocha.run();</script>
   <!-- /testing -->
 </body>

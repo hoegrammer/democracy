@@ -19,7 +19,7 @@ $(function() {
   // Collection of proposals
   var proposals = new Backbone.Collection();
 
-  // View for a single proposal (a row in the propsals table)
+  // View for a single proposal (a row in the proposals table)
   var ProposalView = Marionette.ItemView.extend({
     tagName: "tr",
     template: "#proposal-view-template"
@@ -47,12 +47,20 @@ $(function() {
     }
   });
 
+  var LoginForm = Marionette.ItemView.extend({
+    template: "#login-form-template",
+    events: {
+      "click button": "login"
+    },
+    login: function() {
+    }
+  });
+
   // Initialisation
   app.on("start", function() {
     var appLayout = new AppLayout();
     appLayout.render();
-    appLayout.top.show(new ProposalForm());
-    appLayout.main.show(new ProposalList({collection: proposals}));
+    appLayout.main.show(new LoginForm());
   });
   app.start();
 });
