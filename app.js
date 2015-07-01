@@ -6,6 +6,9 @@ $(function() {
 
   var app = new Marionette.Application();
 
+  // Collection of proposals
+  var proposals = new Backbone.Collection();
+
   // View for the Add Proposal form
   var ProposalForm = Marionette.ItemView.extend({
     template: "#proposal-form-template",
@@ -17,25 +20,6 @@ $(function() {
         name: this.$("textarea").val()
       });
       this.$("textarea").val("");
-    }
-  });
-
-  // Collection of proposals
-  var proposals = new Backbone.Collection();
-
-  // Overall layout, with top and main regions
-  var AppLayout = Marionette.LayoutView.extend({
-    el: "#app",
-    template: "#layout-template",
-    childEvents: {
-      "login": function() {
-        this.top.show(new ProposalForm());
-        this.main.show(new ProposalList({collection: proposals}));
-      }
-    },
-    regions: {
-      top: "#top",
-      main: "#main"
     }
   });
 
@@ -53,6 +37,21 @@ $(function() {
     childViewContainer: "#container"
   });
 
+  // Overall layout, with top and main regions
+  var AppLayout = Marionette.LayoutView.extend({
+    el: "#app",
+    template: "#layout-template",
+    childEvents: {
+      "login": function() {
+        this.top.show(new ProposalForm());
+        this.main.show(new ProposalList({collection: proposals}));
+      }
+    },
+    regions: {
+      top: "#top",
+      main: "#main"
+    }
+  });
 
   var LoginForm = Marionette.ItemView.extend({
     template: "#login-form-template",
@@ -60,7 +59,7 @@ $(function() {
       "click button": "login"
     },
     login: function() {
-      this.triggerMethod('login');
+      this.triggerMethod("login");
     }
   });
 
