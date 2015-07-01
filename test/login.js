@@ -20,4 +20,11 @@ describe("login", function() {
     expect($("button").length).to.equal(1);
   });
 
+  it("clicking login to motions screen", function() {
+    $("button").click();
+    expect($("textarea").length).to.equal(1);
+    expect($("#username").length).to.equal(0);
+    expect($("table").length).to.equal(1);
+  });
+
 });
