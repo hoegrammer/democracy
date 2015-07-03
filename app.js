@@ -15,13 +15,18 @@ $(function() {
     events: {
       "click button": "addProposal"
     },
+
     addProposal: function() {
+      var text = this.$("textarea").val();
+      if (text !=0) {
       proposals.add({
         name: this.$("textarea").val()
-      });
+        });
       this.$("textarea").val("");
+      }
     }
   });
+
 
   // View for a single proposal (a row in the proposals table)
   var ProposalView = Marionette.ItemView.extend({
