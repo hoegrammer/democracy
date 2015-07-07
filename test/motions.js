@@ -2,7 +2,7 @@
 
 var expect = chai.expect;
 
-describe("home page", function() {
+describe("motions screen", function() {
 
   "use strict";
 

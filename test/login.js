@@ -20,7 +20,7 @@ describe("login", function() {
     expect($("button").length).to.equal(1);
   });
 
-  it("clicking login to motions screen", function() {
+  it("clicking login takes you to motions screen", function() {
     $("button").click();
     expect($("textarea").length).to.equal(1);
     expect($("#username").length).to.equal(0);
