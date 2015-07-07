@@ -1,4 +1,4 @@
-/* global Backbone, Marionette, $ */
+/* global Backbone, Marionette, $, require */
 
 $(function() {
 
@@ -11,7 +11,7 @@ $(function() {
 
   // View for the Add Proposal form
   var ProposalForm = Marionette.ItemView.extend({
-    template: "#proposal-form-template",
+    template: require("../templates/proposal-form.html"),
     events: {
       "click button": "addProposal"
     },
@@ -26,13 +26,13 @@ $(function() {
   // View for a single proposal (a row in the proposals table)
   var ProposalView = Marionette.ItemView.extend({
     tagName: "tr",
-    template: "#proposal-view-template"
+    template: require("../templates/proposal-view.html")
   });
 
   // View for the list of proposals
   var ProposalList = Marionette.CompositeView.extend({
     tagName: "div",
-    template: "#proposal-list-template",
+    template: require("../templates/proposal-list.html"),
     childView: ProposalView,
     childViewContainer: "#container"
   });
@@ -40,7 +40,7 @@ $(function() {
   // Overall layout, with top and main regions
   var AppLayout = Marionette.LayoutView.extend({
     el: "#app",
-    template: "#layout-template",
+    template: require("../templates/layout.html"),
     childEvents: {
       "login": function() {
         this.top.show(new ProposalForm());
@@ -54,7 +54,7 @@ $(function() {
   });
 
   var LoginForm = Marionette.ItemView.extend({
-    template: "#login-form-template",
+    template: require("../templates/login-form.html"),
     events: {
       "click button": "login"
     },

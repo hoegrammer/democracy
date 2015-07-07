@@ -8,11 +8,16 @@ module.exports = function(grunt) {
     browserify: {
       dist: {
         src: ["js/app.js"],
-        dest: "built.js"
+        dest: "built.js",
+        options: {
+          transform: ["node-underscorify"],
+          debug: true,
+          external: ["jquery", "underscore", "backbone", "backbone.marionette"]
+        }
       }
     },
     watch: {
-      files: ["js/*.js"],
+      files: ["js/*.js", "templates/*.html"],
       tasks: ["browserify"]
     }
   });
