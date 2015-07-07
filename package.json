@@ -1,0 +1,22 @@
+{
+  "name": "Democracy",
+  "description": "Online voting app",
+  "keywords": [
+    "democracy",
+    "voting",
+    "online"
+  ],
+  "license": "MIT",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hoegrammer/democracy.git"
+  },
+  "bugs": "https://github.com/hoegrammer/democracy/issues",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.8.0",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
