@@ -8,6 +8,9 @@ describe("login", function() {
 
   it("has a username textbox", function() {
     expect($("input#username").length).to.equal(1);
+  });
+
+  it("has a username label", function() {
     expect($("label[for='username']").length).to.equal(1);
   });
 

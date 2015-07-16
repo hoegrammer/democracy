@@ -9,7 +9,7 @@ describe("motions page", function() {
   "use strict";
 
   it("has at least one text area", function() {
-    expect($("textarea")).to.exist;
+    expect($("textarea").length).to.equal(1);
   });
 
   it("has one button", function() {
@@ -17,7 +17,7 @@ describe("motions page", function() {
   });
 
   it("has at least one table", function() {
-    expect($("table")).to.exist;
+    expect($("table").length).to.equal(1);
   });
 
   describe("typing in box and clicking button", function() {
