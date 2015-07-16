@@ -1,0 +1,5 @@
+<textarea />
+<div class="button-container">
+  <button>Add Proposal</button>
+<div id="loggedInUser">Fred</div>
+</div>

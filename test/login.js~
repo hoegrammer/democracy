@@ -8,9 +8,6 @@ describe("login", function() {
 
   it("has a username textbox", function() {
     expect($("input#username").length).to.equal(1);
-  });
-
-  it("has a username label", function() {
     expect($("label[for='username']").length).to.equal(1);
   });
 
@@ -23,7 +20,7 @@ describe("login", function() {
     expect($("button").length).to.equal(1);
   });
 
-  it("transitions to motions screen with right info on login", function() {
+  it("should move on to motions screen on clicking login", function() {
     $("#username").val("Fred");
     $("button").click();
     expect($("#loggedInUser").html()).to.equal("Fred");
