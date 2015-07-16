@@ -35,6 +35,12 @@ $(function() {
     template: require("../templates/proposal-view.html")
   });
 
+ // View for login info (tracks logged in user)
+  var LoginStatus= Marionette.ItemView.extend({
+    tagName: "div",
+    template: require("../templates/login-status.html")
+  });
+
   // View for the list of proposals
   var ProposalList = Marionette.CompositeView.extend({
     tagName: "div",
@@ -49,11 +55,13 @@ $(function() {
     template: require("../templates/layout.html"),
     childEvents: {
       "login": function() {
+        this.header.show(new LoginStatus());
         this.top.show(new ProposalForm());
         this.main.show(new ProposalList({collection: proposals}));
       }
     },
     regions: {
+      header: "#header",
       top: "#top",
       main: "#main"
     }
@@ -78,11 +86,11 @@ $(function() {
   app.start();
 });
 
-},{"../templates/layout.html":2,"../templates/login-form.html":3,"../templates/proposal-form.html":4,"../templates/proposal-list.html":5,"../templates/proposal-view.html":6}],2:[function(require,module,exports){
+},{"../templates/layout.html":2,"../templates/login-form.html":3,"../templates/login-status.html":4,"../templates/proposal-form.html":5,"../templates/proposal-list.html":6,"../templates/proposal-view.html":7}],2:[function(require,module,exports){
 module.exports = function(obj){
 var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
 with(obj||{}){
-__p+='<div id = "top"></div>\n<div id = "main"></div>\n';
+__p+='<div id = "header"></div>\n<div id = "top"></div>\n<div id = "main"></div>\n';
 }
 return __p;
 };
@@ -100,7 +108,7 @@ return __p;
 module.exports = function(obj){
 var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
 with(obj||{}){
-__p+='<textarea />\n<div class="button-container">\n  <button>Add Proposal</button>\n</div>\n';
+__p+='<span id="loggedInUser">Fred</span>\n';
 }
 return __p;
 };
@@ -109,12 +117,21 @@ return __p;
 module.exports = function(obj){
 var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
 with(obj||{}){
-__p+='<table>\n  <thead> \n    <tr><th>Proposals</th></tr>\n  </thead>\n  <tbody id = "container"></tbody>\n</table>\n';
+__p+='<textarea />\n<div class="button-container">\n  <button>Add Proposal</button>\n</div>\n';
 }
 return __p;
 };
 
 },{}],6:[function(require,module,exports){
+module.exports = function(obj){
+var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
+with(obj||{}){
+__p+='<table>\n  <thead> \n    <tr><th>Proposals</th></tr>\n  </thead>\n  <tbody id = "container"></tbody>\n</table>\n';
+}
+return __p;
+};
+
+},{}],7:[function(require,module,exports){
 module.exports = function(obj){
 var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
 with(obj||{}){

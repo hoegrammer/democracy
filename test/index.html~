@@ -13,7 +13,31 @@
   <!-- /testing -->
 
   <div id="app" style="display: none"></div>
-
+  <script id="layout-template" type="text/template">
+    <div id = "top"></div>
+    <div id = "main"></div>
+  </script>
+  <script id="proposal-form-template" type="text/template">
+    <textarea /><button>Add Proposal</button>
+  </script>
+  <script id="login-form-template" type="text/template">
+    <label for = "username">Username</label>
+    <input type = "text" id = "username" />
+    <label for = "password">Password</label>
+    <input type = "password" id = "password" />
+    <button>Login</button>
+  </script>
+  <script id="proposal-list-template" type="text/template">
+    <table>
+      <thead>
+        <tr><th>Proposals</th></tr>
+      </thead>
+      <tbody id = "container"></tbody>
+    </table>
+  </script>
+  <script id ="proposal-view-template" type="text/template">
+    <td><%= name %></td>
+  </script>
   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>

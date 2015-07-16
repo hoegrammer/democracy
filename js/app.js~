@@ -54,13 +54,11 @@ $(function() {
     template: require("../templates/layout.html"),
     childEvents: {
       "login": function() {
-        this.header.show(new LoginStatus());
         this.top.show(new ProposalForm());
         this.main.show(new ProposalList({collection: proposals}));
       }
     },
     regions: {
-      header: "#header",
       top: "#top",
       main: "#main"
     }
