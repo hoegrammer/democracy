@@ -18,12 +18,12 @@ $(function() {
 
     addProposal: function() {
       var text = this.$("textarea").val();
-      if (text !=0) {
-      proposals.add({
-        name: this.$("textarea").val()
+      if (text !== "") {
+        proposals.add({
+          name: text
         });
-      this.$("textarea").val("");
       }
+      this.$("textarea").val("");
     }
   });
 

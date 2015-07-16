@@ -20,16 +20,10 @@ describe("login", function() {
     expect($("button").length).to.equal(1);
   });
 
-<<<<<<< HEAD
-  it("clicking login takes you to motions screen", function() {
-=======
-  it("right info is stored on login to motions screen", function() {
->>>>>>> e39221e6023d70d6143acd6260cf4a554d8ca9ad
+  it("should move on to motions screen on clicking login", function() {
     $("button").click();
     expect($("textarea").length).to.equal(1);
     expect($("#username").length).to.equal(0);
-    expect($("#username")).to.be.a('string');
     expect($("table").length).to.equal(1);
   });
-
 });
