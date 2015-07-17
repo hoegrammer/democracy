@@ -40,6 +40,28 @@ $(function() {
     template: require("../templates/login-status.html")
   });
 
+// Backbone model for storing user profile information
+ var  userInfo= Backbone.Model.extend({
+  defaults: {
+    userName: 'Fred',
+    password: 'password',
+    //profile pic 
+    avatarURL: 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/v/t1.0-1/c29.0.100.100/p100x100/1379841_10150004552801901_469209496895221757_n.jpg?oh=dcf8e25cbdbfdb1b586500362e6a8779&oe=56534424&__gda__=1444525105_56882dd2a07b87223e787d3fa3a6675a',
+    //track's user's online, offline or away status
+    currentStatus: 'offline'
+  },
+ 
+ initialize: function(){
+    this.on("Fred":userName, function(model){
+      var name = model.get("userName"); // 'Fred'
+      alert("Changed username to " + userName);
+    });
+  }
+});
+
+var userName = new User({ name: "Fred", age: 666});
+userName.set({name: 'Fred Two'}); // This triggers a change and will alert()
+
   // View for the list of proposals
   var ProposalList = Marionette.CompositeView.extend({
     tagName: "div",
