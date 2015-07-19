@@ -62,7 +62,7 @@ $(function() {
     alert("This is a model");
   }
 });
-
+  
   // Overall layout, with top and main regions
   var AppLayout = Marionette.LayoutView.extend({
     el: "#app",
@@ -74,12 +74,12 @@ $(function() {
         this.main.show(new ProposalList({collection: proposals}));
       }
     },
-  // Garbage collection for views
-  var DestroyViews : function () {
+    // Garbage collection for views
+    DestroyViews : function () {
 
-     if(this.currentView( {
-        while(this.currentView.length > 0) {
-             this.currentView.pop().destructor();
+      if(this.currentView) {
+         while(this.currentView.length > 0) {
+              this.currentView.pop().destructor();
 	}
      }
    },	
