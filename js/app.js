@@ -4,6 +4,10 @@ $(function() {
 
   "use strict";
 
+  var app = new Marionette.Application();
+
+  var loggedInUser = new Backbone.Model();
+
   // Collection of proposals
   var proposals = new Backbone.Collection();
 
@@ -24,6 +28,8 @@ $(function() {
       this.$("textarea").val("");
     }
   });
+
+
   // View for a single proposal (a row in the proposals table)
   var ProposalView = Marionette.ItemView.extend({
     tagName: "tr",
@@ -33,6 +39,8 @@ $(function() {
  // View for login info (tracks logged in user)
   var LoginStatus = Marionette.ItemView.extend({
     tagName: "div",
+    id: "loginStatus",
+    model: loggedInUser,
     template: require("../templates/login-status.html")
   });
 
@@ -44,27 +52,17 @@ $(function() {
     childViewContainer: "#container"
   });
 
-  var LoginForm = Marionette.ItemView.extend({
-    template: require("../templates/login-form.html"),
-    events: {
-      "click #login": "login"
-    },
-    login: function() {
-      this.triggerMethod("login");
-    }
-  });
-
   // Overall layout, with top and main regions
   var AppLayout = Marionette.LayoutView.extend({
     el: "#app",
     template: require("../templates/layout.html"),
     childEvents: {
-      "login": "gotoMotions"
-    },
-    gotoMotions: function() {
-      this.header.show(new LoginStatus());
-      this.top.show(new ProposalForm());
-      this.main.show(new ProposalList({collection: proposals}));
+      "login": function() {
+        loggedInUser.set("name", $("#username").val());
+        this.header.show(new LoginStatus());
+        this.top.show(new ProposalForm());
+        this.main.show(new ProposalList({collection: proposals}));
+      }
     },
     regions: {
       header: "#header",
@@ -73,34 +71,21 @@ $(function() {
     }
   });
 
-  var appLayout = new AppLayout();
-
-  var Router = Marionette.AppRouter.extend({
-    routes: {
-      //"motions": "loadMotionsScreen",
-      "login": "loadLoginScreen",
-      "": "loadLoginScreen"
+  var LoginForm = Marionette.ItemView.extend({
+    template: require("../templates/login-form.html"),
+    events: {
+      "click button": "login"
     },
-    loadMotionsScreen: function(){
-      appLayout.header.show(new LoginStatus());
-      appLayout.top.show(new ProposalForm());
-      appLayout.main.show(new ProposalList({collection: proposals}));
-    },
-    loadLoginScreen: function() {
-      appLayout.top.empty();
-      appLayout.main.show(new LoginForm());
+    login: function() {
+      this.triggerMethod("login");
     }
   });
 
-  var app = new Marionette.Application();
-
   // Initialisation
   app.on("start", function() {
-    (function() {
-      return new Router();
-    })(); // weird hack - ignore
+    var appLayout = new AppLayout();
     appLayout.render();
-    Backbone.history.start();
+    appLayout.main.show(new LoginForm());
   });
   app.start();
 });
