@@ -26,7 +26,6 @@ describe("login", function() {
   it("transitions to motions screen with right info on login", function() {
     $("#username").val("Fred");
     $("button").click();
-    expect($("#loggedInUser").html()).to.equal("Fred");
     expect($("textarea").length).to.equal(1);
     expect($("#username").length).to.equal(0);
     expect($("table").length).to.equal(1);
