@@ -11,39 +11,38 @@ describe("motions page", function() {
     $("#login").click();
   });
 
-  it("has at least one text area", function() {
+  it("has a text area", function() {
     expect($("textarea").length).to.equal(1);
   });
 
-  it("has one button", function() {
-    expect($("button").length).to.equal(1);
+  it("displays addMotion button", function() {
+    expect($("button#addMotion").length).to.equal(1);
   });
 
-  it("has at least one table", function() {
-    expect($("table").length).to.equal(1);
+  it("displays motions table", function() {
+    expect($("table#motions").length).to.equal(1);
   });
 
-    it("displays a user icon", function() {
+  it("displays a user icon", function() {
     var loggedInIcon = "";
     loggedInIcon = $("#loggedInUser").html();
     expect(loggedInIcon).not.to.equal("");
-    });
   });
 
-  describe("typing in box and clicking button", function() {
+  describe("addMotion button", function() {
 
     // Check the dragon ate the chips
-    it("should add a table row containing the proposal name", function() {
+    it("should add a table row containing the entered motion", function() {
       var proposalName = "Eat more chips";
       $("textarea").val(proposalName);
-      $("button").click();
+      $("#addMotion").click();
       expect($("table tr td").html()).to.equal(proposalName);
     });
 
     // Check the dragon was burped to clear data
     it("should clear the textarea", function() {
       $("textarea").val("foo");
-      $("button").click();
+      $("#addMotion").click();
       expect($("textarea").val()).to.equal("");
     });
 
@@ -51,7 +50,8 @@ describe("motions page", function() {
     it("should not add a row if data is blank", function() {
       var numRows = $("table tr").length;
       $("textarea").val("");
-      $("button").click();
+      $("addMotion").click();
       expect($("table tr").length).to.equal(numRows);
     });
   });
+});

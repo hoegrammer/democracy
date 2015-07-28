@@ -32,18 +32,33 @@ describe("login", function() {
       $("#username").val("Fred");
       $("button").click();
     });
+
     it("should go to motions screen", function() {
       expect($("textarea").length).to.equal(1);
       expect($("table").length).to.equal(1);
     });
+
     it("should not show login form", function() {
       expect($("#username").length).to.equal(0);
     });
+
     it("should display the name of the logged-in user", function() {
       expect($("#loginStatus #name").html()).to.equal("Fred");
     });
+
     it("should display an avatar", function() {
       expect($("#loginStatus img").length).to.equal(1);
+    });
+
+    describe("Logging out", function() {
+      before(function() {
+        $("#logout").click();
+      });
+
+      it("should take you back to the login screen", function() {
+        $("#logout").click();
+        expect($("#loginForm").length).to.equal(1);
+      });
     });
   });
 });

@@ -41,7 +41,13 @@ $(function() {
     tagName: "div",
     id: "loginStatus",
     model: loggedInUser,
-    template: require("../templates/login-status.html")
+    template: require("../templates/login-status.html"),
+    events: {
+      "click button": "logout"
+    },
+    logout: function() {
+      this.triggerMethod("logout");
+    }
   });
 
   // View for the list of proposals
@@ -49,7 +55,18 @@ $(function() {
     tagName: "div",
     template: require("../templates/proposal-list.html"),
     childView: ProposalView,
-    childViewContainer: "#container"
+    childViewContainer: ".childViewContainer"
+  });
+
+  var LoginForm = Marionette.ItemView.extend({
+    template: require("../templates/login-form.html"),
+    id: "loginForm",
+    events: {
+      "click button": "login"
+    },
+    login: function() {
+      this.triggerMethod("login");
+    }
   });
 
   // Overall layout, with top and main regions
@@ -62,22 +79,17 @@ $(function() {
         this.header.show(new LoginStatus());
         this.top.show(new ProposalForm());
         this.main.show(new ProposalList({collection: proposals}));
+      },
+      "logout": function() {
+        this.header.empty();
+        this.top.empty();
+        this.main.show(new LoginForm());
       }
     },
     regions: {
       header: "#header",
       top: "#top",
       main: "#main"
-    }
-  });
-
-  var LoginForm = Marionette.ItemView.extend({
-    template: require("../templates/login-form.html"),
-    events: {
-      "click button": "login"
-    },
-    login: function() {
-      this.triggerMethod("login");
     }
   });
 
