@@ -3,10 +3,13 @@
 
 var expect = chai.expect;
 
-// begin motions page
 describe("motions page", function() {
-  // use stict syntax
+
   "use strict";
+
+  before(function() {
+    $("#login").click();
+  });
 
   it("has at least one text area", function() {
     expect($("textarea").length).to.equal(1);
@@ -32,6 +35,8 @@ describe("motions page", function() {
 
     // Check the dragon was burped to clear data
     it("should clear the textarea", function() {
+      $("textarea").val("foo");
+      $("button").click();
       expect($("textarea").val()).to.equal("");
     });
 
