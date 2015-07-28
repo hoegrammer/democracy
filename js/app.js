@@ -57,6 +57,7 @@ $(function() {
         this.header.show(new LoginStatus());
         this.top.show(new ProposalForm());
         this.main.show(new ProposalList({collection: proposals}));
+        this.main.show(new LoginForm());
       }
     },
     regions: {

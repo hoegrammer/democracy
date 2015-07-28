@@ -58,6 +58,7 @@ $(function() {
         this.header.show(new LoginStatus());
         this.top.show(new ProposalForm());
         this.main.show(new ProposalList({collection: proposals}));
+        this.main.show(new LoginForm());
       }
     },
     regions: {
@@ -90,7 +91,7 @@ $(function() {
 module.exports = function(obj){
 var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
 with(obj||{}){
-__p+='<div id = "header"></div>\n<div id = "top"></div>\n<div id = "main"></div>\n';
+__p+='<div id = "header"></div>\r\n<div id = "top"></div>\r\n<div id = "main"></div>\r\n';
 }
 return __p;
 };
@@ -99,7 +100,7 @@ return __p;
 module.exports = function(obj){
 var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
 with(obj||{}){
-__p+='<div class = \'form-row\'>\n  <p><label for = "username">Username</label></p>\n  <p><input type = "text" id = "username" /></p>\n</div>\n<div class = \'form-row\'>\n  <p><label for = "password">Password</label></p>\n  <p><input type = "password" id = "password" /></p>\n</div>\n<div class = \'form-row\'>\n  <p><button>Login</button></p>\n</p>\n';
+__p+='<div class = \'form-row\'>\r\n  <p><label for = "username">Username</label></p>\r\n  <p><input type = "text" id = "username" /></p>\r\n</div>\r\n<div class = \'form-row\'>\r\n  <p><label for = "password">Password</label></p>\r\n  <p><input type = "password" id = "password" /></p>\r\n</div>\r\n<div class = \'form-row\'>\r\n  <p><button>Login</button></p>\r\n</p>\r\n';
 }
 return __p;
 };
@@ -108,7 +109,7 @@ return __p;
 module.exports = function(obj){
 var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
 with(obj||{}){
-__p+='<span id="loggedInUser">Fred</span>\n';
+__p+='<span id="loggedInUser">Fred</span>\r\n';
 }
 return __p;
 };
@@ -117,7 +118,7 @@ return __p;
 module.exports = function(obj){
 var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
 with(obj||{}){
-__p+='<textarea />\n<div class="button-container">\n  <button>Add Proposal</button>\n</div>\n';
+__p+='<textarea />\r\n<div class="button-container">\r\n  <button>Add Proposal</button>\r\n</div>\r\n';
 }
 return __p;
 };
@@ -126,7 +127,7 @@ return __p;
 module.exports = function(obj){
 var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
 with(obj||{}){
-__p+='<table>\n  <thead> \n    <tr><th>Proposals</th></tr>\n  </thead>\n  <tbody id = "container"></tbody>\n</table>\n';
+__p+='<table>\r\n  <thead> \r\n    <tr><th>Proposals</th></tr>\r\n  </thead>\r\n  <tbody id = "container"></tbody>\r\n</table>\r\n';
 }
 return __p;
 };
@@ -137,7 +138,7 @@ var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments
 with(obj||{}){
 __p+='<td>'+
 ((__t=( name ))==null?'':__t)+
-'</td>\n';
+'</td>\r\n';
 }
 return __p;
 };
