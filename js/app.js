@@ -4,8 +4,6 @@ $(function() {
 
   "use strict";
 
-  var app = new Marionette.Application();
-
   // Collection of proposals
   var proposals = new Backbone.Collection();
 
@@ -26,8 +24,6 @@ $(function() {
       this.$("textarea").val("");
     }
   });
-
-
   // View for a single proposal (a row in the proposals table)
   var ProposalView = Marionette.ItemView.extend({
     tagName: "tr",
@@ -35,7 +31,7 @@ $(function() {
   });
 
  // View for login info (tracks logged in user)
-  var LoginStatus= Marionette.ItemView.extend({
+  var LoginStatus = Marionette.ItemView.extend({
     tagName: "div",
     template: require("../templates/login-status.html")
   });
@@ -48,16 +44,27 @@ $(function() {
     childViewContainer: "#container"
   });
 
+  var LoginForm = Marionette.ItemView.extend({
+    template: require("../templates/login-form.html"),
+    events: {
+      "click #login": "login"
+    },
+    login: function() {
+      this.triggerMethod("login");
+    }
+  });
+
   // Overall layout, with top and main regions
   var AppLayout = Marionette.LayoutView.extend({
     el: "#app",
     template: require("../templates/layout.html"),
     childEvents: {
-      "login": function() {
-        this.header.show(new LoginStatus());
-        this.top.show(new ProposalForm());
-        this.main.show(new ProposalList({collection: proposals}));
-      }
+      "login": "gotoMotions"
+    },
+    gotoMotions: function() {
+      this.header.show(new LoginStatus());
+      this.top.show(new ProposalForm());
+      this.main.show(new ProposalList({collection: proposals}));
     },
     regions: {
       header: "#header",
@@ -66,21 +73,34 @@ $(function() {
     }
   });
 
-  var LoginForm = Marionette.ItemView.extend({
-    template: require("../templates/login-form.html"),
-    events: {
-      "click button": "login"
+  var appLayout = new AppLayout();
+
+  var Router = Marionette.AppRouter.extend({
+    routes: {
+      //"motions": "loadMotionsScreen",
+      "login": "loadLoginScreen",
+      "": "loadLoginScreen"
     },
-    login: function() {
-      this.triggerMethod("login");
+    loadMotionsScreen: function(){
+      appLayout.header.show(new LoginStatus());
+      appLayout.top.show(new ProposalForm());
+      appLayout.main.show(new ProposalList({collection: proposals}));
+    },
+    loadLoginScreen: function() {
+      appLayout.top.empty();
+      appLayout.main.show(new LoginForm());
     }
   });
 
+  var app = new Marionette.Application();
+
   // Initialisation
   app.on("start", function() {
-    var appLayout = new AppLayout();
+    (function() {
+      return new Router();
+    })(); // weird hack - ignore
     appLayout.render();
-    appLayout.main.show(new LoginForm());
+    Backbone.history.start();
   });
   app.start();
 });
