@@ -75,6 +75,11 @@ input {
   font-size: 2em;
 }
 
+#loggedInUser {
+  position: absolute;
+  right: 40px;
+  top: 10px;
+}
 .form-row {
   margin-top: 1em;
   margin-bottom: 1em;
