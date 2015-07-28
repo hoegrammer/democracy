@@ -23,6 +23,13 @@ describe("motions page", function() {
     expect($("table").length).to.equal(1);
   });
 
+    it("displays a user icon", function() {
+    var loggedInIcon = "";
+    loggedInIcon = $("#loggedInUser").html();
+    expect(loggedInIcon).not.to.equal("");
+    });
+  });
+
   describe("typing in box and clicking button", function() {
 
     // Check the dragon ate the chips
@@ -48,5 +55,3 @@ describe("motions page", function() {
       expect($("table tr").length).to.equal(numRows);
     });
   });
-// Easter Egg puzzle -- Dragon-Bear retains data
-});

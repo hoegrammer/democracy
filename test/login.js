@@ -40,7 +40,10 @@ describe("login", function() {
       expect($("#username").length).to.equal(0);
     });
     it("should display the name of the logged-in user", function() {
-      expect($("#loggedInUser").html()).to.equal("Fred");
+      expect($("#loggedInUser #name").html()).to.equal("Fred");
+    });
+    it("should display an avatar", function() {
+      expect($("#loggedInUser img").length).to.equal(1);
     });
   });
 });
