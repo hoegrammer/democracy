@@ -36,6 +36,7 @@ input, button {
   height: 50px;
 }
 
+
 button {
   margin-top: 50px;
   margin-left: 50px;
@@ -75,11 +76,47 @@ input {
   font-size: 2em;
 }
 
-#loggedInUser {
-  position: absolute;
-  right: 40px;
-  top: 10px;
+#header {
+padding: 0px;
 }
+
+#loginStatus {
+  margin-bottom: 70px;
+  top: -40px;
+
+  border-bottom-style: ridge;
+  border-width: 1px;
+  border-color: grey;
+  height: 10px;
+}
+
+#avatar {
+  position: absolute;
+  left: 950px;
+  border-radius:5px;
+  border-color: black;
+  border: 1px;
+  top: 8px;
+}
+
+#logoutButton {
+  margin-top: 0px;
+  margin-left: 0px;
+  padding: 0px;
+  position: absolute;
+  height: 32px;
+	background-color:#3b8234;
+	border-radius:5px;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+  left: 775px;
+  top: 8px;
+}
+
 .form-row {
   margin-top: 1em;
   margin-bottom: 1em;
