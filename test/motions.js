@@ -33,6 +33,10 @@ describe("motions page", function() {
     expect($("#deleteMotion").length).to.equal(1);
   });
 
+  it("has three header buttons", function() {
+    expect($("button").length).to.equal(3);
+  });
+
   describe("addMotion button", function() {
 
     // Check the dragon ate the chips

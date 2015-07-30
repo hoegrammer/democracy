@@ -43,7 +43,7 @@ describe("login", function() {
     });
 
     it("should display the name of the logged-in user", function() {
-      expect($("#loginStatus #name").html()).to.equal("Fred");
+      expect($("#loginStatus #name").html()).to.equal("Logged in user: Fred");
     });
 
     it("should display an avatar", function() {
