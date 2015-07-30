@@ -29,7 +29,7 @@ describe("motions page", function() {
     expect(loggedInIcon).not.to.equal("");
   });
 
-  it("has all fout buttons", function() {
+  it("has all four buttons", function() {
     expect($("button").length).to.equal(4);
   });
 
