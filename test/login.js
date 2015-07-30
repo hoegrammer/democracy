@@ -56,7 +56,7 @@ describe("login", function() {
       });
 
       it("should take you back to the login screen", function() {
-        $("#logout").click();
+        $("#logoutButton").click();
         expect($("#loginForm").length).to.equal(1);
       });
     });
