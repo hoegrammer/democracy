@@ -83,7 +83,6 @@ padding: 0px;
 #loginStatus {
   margin-bottom: 70px;
   top: -40px;
-
   border-bottom-style: ridge;
   border-width: 1px;
   border-color: grey;
@@ -105,10 +104,8 @@ padding: 0px;
   padding: 0px;
   position: absolute;
   height: 32px;
-	background-color:#3b8234;
 	border-radius:5px;
 	cursor:pointer;
-	color:#ffffff;
 	font-family:Arial;
 	font-size:14px;
 	text-decoration:none;
@@ -117,10 +114,19 @@ padding: 0px;
   top: 8px;
 }
 
+#addMotion {
+
+}
+
+
+#deleteMotion {
+
+}
+
 #name {
   position: absolute;
   left: 950px;
-  top: 15px;
+  top: 8px;
 }
 
 .form-row {
