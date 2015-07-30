@@ -43,10 +43,18 @@ $(function() {
     model: loggedInUser,
     template: require("../templates/toolbar-top.html"),
     events: {
-      "click button": "logout"
+      "click #logoutButton": "logout",
+      "click #add-removeButton": "addView",
+      "click #manageButton": "voteView"
     },
     logout: function() {
       this.triggerMethod("logout");
+    },
+    addView: function() {
+      this.triggerMethod("addView");
+    },
+    voteView: function() {
+      this.triggerMethod("voteView");
     }
   });
 
@@ -80,7 +88,16 @@ $(function() {
         this.top.show(new ProposalForm());
         this.main.show(new ProposalList({collection: proposals}));
       },
-      "logout": function() {
+      "addView": function() {
+        this.top.empty();
+        this.top.show(new ProposalForm());
+        this.main.show(new ProposalList({collection: proposals}));
+      },
+       "voteView": function() {
+        this.top.empty();
+        this.main.show(new ProposalList({collection: proposals}));
+      },
+        "logout": function() {
         this.header.empty();
         this.top.empty();
         this.main.show(new LoginForm());
