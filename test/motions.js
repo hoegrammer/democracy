@@ -29,12 +29,8 @@ describe("motions page", function() {
     expect(loggedInIcon).not.to.equal("");
   });
 
-  it("has a delete motion button", function() {
-    expect($("#deleteMotion").length).to.equal(1);
-  });
-
-  it("has all five buttons", function() {
-    expect($("button").length).to.equal(5);
+  it("has all fout buttons", function() {
+    expect($("button").length).to.equal(4);
   });
 
   describe("addMotion button", function() {
@@ -44,32 +40,11 @@ describe("motions page", function() {
       var proposalName = "Eat more chips";
       $("textarea").val(proposalName);
       $("#addMotion").click();
-      expect($("table tr td").html()).to.equal(proposalName);
+      expect($("table tr td:contains(" + proposalName + ")").length).to.equal(1);
     });
 
-    // Check the dragon was burped to clear data
-    it("should clear the textarea", function() {
-      $("textarea").val("foo");
-      $("#addMotion").click();
-      expect($("textarea").val()).to.equal("");
-    });
-
-    // Check the dragon understood that the data was blank
-    it("should not add a row if data is blank", function() {
-      var numRows = $("table tr").length;
-      $("textarea").val("");
-      $("addMotion").click();
-      expect($("table tr").length).to.equal(numRows);
-    });
-  });
-describe("addMotion button", function() {
-
-    // Check the dragon ate the chips
-    it("should add a table row containing the entered motion", function() {
-      var proposalName = "Eat more chips";
-      $("textarea").val(proposalName);
-      $("#addMotion").click();
-      expect($("table tr td").html()).to.equal(proposalName);
+    it("table row should have a delete motion button", function() {
+      expect($("tr #deleteMotion").length).to.equal(1);
     });
 
     // Check the dragon was burped to clear data
