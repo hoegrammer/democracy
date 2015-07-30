@@ -36,25 +36,18 @@ $(function() {
     template: require("../templates/proposal-view.html")
   });
 
- // View for login info (tracks logged in user)
+  // View for login info (tracks logged in user)
   var LoginStatus = Marionette.ItemView.extend({
     tagName: "div",
     id: "loginStatus",
     model: loggedInUser,
-    template: require("../templates/login-status.html"),
+    template: require("../templates/toolbar-top.html"),
     events: {
       "click button": "logout"
     },
     logout: function() {
       this.triggerMethod("logout");
     }
-  });
-
-// View for top toolbar
-  var ToolbarTop = Marionette.ItemView.extend({
-    tagName: "div",
-    id: "toolbarTop",
-    template: require("../templates/toolbar-top.html"),
   });
 
   // View for the list of proposals
@@ -83,8 +76,7 @@ $(function() {
     childEvents: {
       "login": function() {
         loggedInUser.set("name", $("#username").val());
-        this.header.show(new ToolbarTop());
-        this.header.show(new LoginStatus());
+	this.header.show(new LoginStatus());
         this.top.show(new ProposalForm());
         this.main.show(new ProposalList({collection: proposals}));
       },
