@@ -33,8 +33,8 @@ describe("motions page", function() {
     expect($("#deleteMotion").length).to.equal(1);
   });
 
-  it("has three header buttons", function() {
-    expect($("button").length).to.equal(3);
+  it("has all five buttons", function() {
+    expect($("button").length).to.equal(5);
   });
 
   describe("addMotion button", function() {
