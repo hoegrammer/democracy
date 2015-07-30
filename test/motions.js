@@ -62,4 +62,29 @@ describe("motions page", function() {
       expect($("table tr").length).to.equal(numRows);
     });
   });
+describe("addMotion button", function() {
+
+    // Check the dragon ate the chips
+    it("should add a table row containing the entered motion", function() {
+      var proposalName = "Eat more chips";
+      $("textarea").val(proposalName);
+      $("#addMotion").click();
+      expect($("table tr td").html()).to.equal(proposalName);
+    });
+
+    // Check the dragon was burped to clear data
+    it("should clear the textarea", function() {
+      $("textarea").val("foo");
+      $("#addMotion").click();
+      expect($("textarea").val()).to.equal("");
+    });
+
+    // Check the dragon understood that the data was blank
+    it("should not add a row if data is blank", function() {
+      var numRows = $("table tr").length;
+      $("textarea").val("");
+      $("addMotion").click();
+      expect($("table tr").length).to.equal(numRows);
+    });
+  });
 });
