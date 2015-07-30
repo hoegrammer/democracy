@@ -50,6 +50,13 @@ $(function() {
     }
   });
 
+// View for top toolbar
+  var ToolbarTop = Marionette.ItemView.extend({
+    tagName: "div",
+    id: "toolbarTop",
+    template: require("../templates/toolbar-top.html"),
+  });
+
   // View for the list of proposals
   var ProposalList = Marionette.CompositeView.extend({
     tagName: "div",
@@ -76,6 +83,7 @@ $(function() {
     childEvents: {
       "login": function() {
         loggedInUser.set("name", $("#username").val());
+        this.header.show(new ToolbarTop());
         this.header.show(new LoginStatus());
         this.top.show(new ProposalForm());
         this.main.show(new ProposalList({collection: proposals}));
