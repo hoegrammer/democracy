@@ -29,6 +29,10 @@ describe("motions page", function() {
     expect(loggedInIcon).not.to.equal("");
   });
 
+  it("has a delete motion button", function() {
+    expect($("#deleteMotion").length).to.equal(1);
+  });
+
   describe("addMotion button", function() {
 
     // Check the dragon ate the chips
