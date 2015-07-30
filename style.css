@@ -94,26 +94,17 @@ padding: 0px;
   top: 8px;
 }
 
-#add-removeButton {
+#motionsButton {
   left: 300px;
   top: 8px;
 }
 
-#manageButton {
+#voteButton {
   left: 500px;
 }
 
 #logoutButton {
   left: 750px;
-}
-
-#addMotion {
-
-}
-
-
-#deleteMotion {
-
 }
 
 #name {

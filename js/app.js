@@ -35,7 +35,7 @@ $(function() {
     tagName: "tr",
     template: require("../templates/proposal-view.html"),
     events: {
-      'click button': 'delete'
+      "click button": "delete"
     },
     delete: function() {
       proposals.remove(this.model);
@@ -49,18 +49,15 @@ $(function() {
     model: loggedInUser,
     template: require("../templates/toolbar-top.html"),
     events: {
-      "click #logoutButton": "logout",
-      "click #add-removeButton": "addView",
-      "click #manageButton": "voteView"
-    },
-    logout: function() {
-      this.triggerMethod("logout");
-    },
-    addView: function() {
-      this.triggerMethod("addView");
-    },
-    voteView: function() {
-      this.triggerMethod("voteView");
+      "click #logoutButton": function() {
+        this.triggerMethod("logout");
+      },
+      "click #motionsButton": function() {
+        this.triggerMethod("loadMotionsScreen");
+      },
+      "click #voteButton": function() {
+        this.triggerMethod("loadVotingScreen");
+      }
     }
   });
 
@@ -88,26 +85,32 @@ $(function() {
     el: "#app",
     template: require("../templates/layout.html"),
     childEvents: {
-      "login": function() {
-        loggedInUser.set("name", $("#username").val());
-	this.header.show(new LoginStatus());
-        this.top.show(new ProposalForm());
-        this.main.show(new ProposalList({collection: proposals}));
-      },
-      "addView": function() {
-        this.top.empty();
-        this.top.show(new ProposalForm());
-        this.main.show(new ProposalList({collection: proposals}));
-      },
-       "voteView": function() {
-        this.top.empty();
-        this.main.show(new ProposalList({collection: proposals}));
-      },
-        "logout": function() {
-        this.header.empty();
-        this.top.empty();
-        this.main.show(new LoginForm());
-      }
+      login: "login",
+      loadMotionsScreen: "loadMotionsScreen",
+      loadVotingScreen: "loadVotingScreen",
+      logout: "logout"
+    },
+    login: function() {
+      loggedInUser.set("name", $("#username").val());
+      this.loadMotionsScreen();
+    },
+    logout: function() {
+      this.header.empty();
+      this.top.empty();
+      this.main.show(new LoginForm());
+    },
+    loadVotingScreen: function() {
+      this.showLoginStatus();
+      this.top.empty();
+      this.main.show(new ProposalList({collection: proposals}));
+    },
+    loadMotionsScreen: function() {
+      this.showLoginStatus();
+      this.top.show(new ProposalForm());
+      this.main.show(new ProposalList({collection: proposals}));
+    },
+    showLoginStatus: function() {
+      this.header.show(new LoginStatus());
     },
     regions: {
       header: "#header",
