@@ -52,7 +52,7 @@ describe("login", function() {
 
     describe("Logging out", function() {
       before(function() {
-        $("#logout").click();
+        $("#logoutButton").click();
       });
 
       it("should take you back to the login screen", function() {
