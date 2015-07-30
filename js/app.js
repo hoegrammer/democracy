@@ -33,7 +33,13 @@ $(function() {
   // View for a single proposal (a row in the proposals table)
   var ProposalView = Marionette.ItemView.extend({
     tagName: "tr",
-    template: require("../templates/proposal-view.html")
+    template: require("../templates/proposal-view.html"),
+    events: {
+      'click button': 'delete'
+    },
+    delete: function() {
+      proposals.remove(this.model);
+    }
   });
 
   // View for login info (tracks logged in user)
