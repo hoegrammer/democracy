@@ -1,3 +1,7 @@
+body {
+    background-color: #507F86;
+}
+
 #app {
   position: absolute;
   width: 1000px;
@@ -12,12 +16,12 @@ table {
 td, th {
   border-radius: 10px;
   padding: 1em;
-  border: 1px dashed grey;
+  border: 1px dashed white;
   font-size: 2em;
 }
 
 th {
-  border: 2px solid gray;
+  border: 1px solid white;
 }
 
 div {
@@ -43,7 +47,7 @@ button {
   width: 170px;
 	background-color:#3b8234;
 	border-radius: 20px;
-	border:1px solid #18ab29;
+	border:1px solid #FFFFFF;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
@@ -81,7 +85,7 @@ padding: 0px;
   top: -40px;
   border-bottom-style: ridge;
   border-width: 1px;
-  border-color: grey;
+  border-color: #91A7AA;
   height: 10px;
 }
 
@@ -94,9 +98,13 @@ padding: 0px;
   top: 8px;
 }
 
-#motionsButton {
+#addMotionsButton {
   left: 300px;
   top: 8px;
+}
+
+#displayMotionsButton {
+  left: 50px;
 }
 
 #voteButton {
@@ -109,8 +117,15 @@ padding: 0px;
 
 #name {
   position: absolute;
-  left: 950px;
-  top: 8px;
+  left: 930px;
+  top: 24px;
+}
+
+#loggedintext
+{
+  position: absolute;
+  left: 930px;
+  top: -10px;
 }
 
 .form-row {
