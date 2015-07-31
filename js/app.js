@@ -49,14 +49,17 @@ $(function() {
     model: loggedInUser,
     template: require("../templates/toolbar-top.html"),
     events: {
-      "click #logoutButton": function() {
-        this.triggerMethod("logout");
+      "click #addMotionsButton": function() {
+        this.triggerMethod("loadAddMotionsScreen");
       },
-      "click #motionsButton": function() {
+      "click #displayMotionsButton": function() {
         this.triggerMethod("loadMotionsScreen");
       },
       "click #voteButton": function() {
         this.triggerMethod("loadVotingScreen");
+      },
+      "click #logoutButton": function() {
+        this.triggerMethod("logout");
       }
     }
   });
@@ -86,28 +89,34 @@ $(function() {
     template: require("../templates/layout.html"),
     childEvents: {
       login: "login",
-      loadMotionsScreen: "loadMotionsScreen",
+      loadAddMotionsScreen: "loadAddMotionsScreen",
+      loadDisplayMotionsScreen: "loadDisplayMotionsScreen",
       loadVotingScreen: "loadVotingScreen",
       logout: "logout"
     },
     login: function() {
       loggedInUser.set("name", $("#username").val());
-      this.loadMotionsScreen();
+      this.loadDisplayMotionsScreen();
     },
-    logout: function() {
-      this.header.empty();
+    loadDisplayMotionsScreen: function() {
+      this.showLoginStatus();
       this.top.empty();
-      this.main.show(new LoginForm());
+      this.main.show(new ProposalList({collection: proposals}));
+    },
+    loadAddMotionsScreen: function() {
+      this.showLoginStatus();
+      this.top.show(new ProposalForm());
+      this.main.show(new ProposalList({collection: proposals}));
     },
     loadVotingScreen: function() {
       this.showLoginStatus();
       this.top.empty();
       this.main.show(new ProposalList({collection: proposals}));
     },
-    loadMotionsScreen: function() {
-      this.showLoginStatus();
-      this.top.show(new ProposalForm());
-      this.main.show(new ProposalList({collection: proposals}));
+    logout: function() {
+      this.header.empty();
+      this.top.empty();
+      this.main.show(new LoginForm());
     },
     showLoginStatus: function() {
       this.header.show(new LoginStatus());
