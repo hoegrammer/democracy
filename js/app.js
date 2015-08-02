@@ -43,9 +43,9 @@ $(function() {
   });
 
   // View for login info (tracks logged in user)
-  var LoginStatus = Marionette.ItemView.extend({
+  var TopToolbarView = Marionette.ItemView.extend({
     tagName: "div",
-    id: "loginStatus",
+    id: "topToolbar",
     model: loggedInUser,
     template: require("../templates/toolbar-top.html"),
     events: {
@@ -99,17 +99,17 @@ $(function() {
       this.loadDisplayMotionsScreen();
     },
     loadDisplayMotionsScreen: function() {
-      this.showLoginStatus();
+      this.showTopToolbarView();
       this.top.empty();
       this.main.show(new ProposalList({collection: proposals}));
     },
     loadAddMotionsScreen: function() {
-      this.showLoginStatus();
+      this.showTopToolbarView();
       this.top.show(new ProposalForm());
       this.main.show(new ProposalList({collection: proposals}));
     },
     loadVotingScreen: function() {
-      this.showLoginStatus();
+      this.showTopToolbarView();
       this.top.empty();
       this.main.show(new ProposalList({collection: proposals}));
     },
@@ -118,8 +118,8 @@ $(function() {
       this.top.empty();
       this.main.show(new LoginForm());
     },
-    showLoginStatus: function() {
-      this.header.show(new LoginStatus());
+    showTopToolbarView: function() {
+      this.header.show(new TopToolbarView());
     },
     regions: {
       header: "#header",
