@@ -53,7 +53,7 @@ $(function() {
         this.triggerMethod("loadAddMotionsScreen");
       },
       "click #displayMotionsButton": function() {
-        this.triggerMethod("loadMotionsScreen");
+        this.triggerMethod("loadDisplayMotionsScreen");
       },
       "click #voteButton": function() {
         this.triggerMethod("loadVotingScreen");
