@@ -3,15 +3,17 @@ body {
     margin: 10px;
     padding: 10px;
 }
-
-#app {
-  position: absolute;
+#container {
   min-width: 1024px;
-  max-width: 1200px;
+  max-width: 1920px;
   min-height: 568px;
   max-height: 768px;
-  border: 1px solid #A07F8C;
-  width: expression( document.body.clientWidth >=1000 ? "1200px" : (document.body.clientWidth <= 920 ? 920 : document.body.clientWidth));
+  width: expression( document.body.clientWidth >=1000 ? "1200px" :     (document.body.clientWidth <= 920 ? 920 : document.body.clientWidth));
+ border: 1px solid #A07F8C;
+}
+#app {
+margin: 0 auto;
+width: 95%
 }
 
 table {
@@ -104,43 +106,43 @@ padding: 0px;
 }
 
 #avatar {
-  position: absolute;
-  height: 30px;
-  width: 30px;
-  left: 741px;
+  position: relative;
+  left: 77px;
+  top: -40px;
   border-radius: 5px;
-  border-color: black;
-  border: 1px;
-  top: 17px;
 }
 
 #addMotionsButton {
-  left: 300px;
 }
 
 #displayMotionsButton {
-  left: 60px;
+left: 80px;
 }
 
 #voteButton {
-  left: 500px;
+left: 120px;
 }
 
 #logoutButton {
-  left: 740px;
+left: 220px;
+}
+
+#loginStatus {
+  position: relative;
+  height: 50px;
+  float: right;
+  margin-right: 20px;
+  top: -47px;
 }
 
 #name {
-  position: absolute;
-  left: 900px;
-  top: 33px;
+  padding: 0px;
+  font-weight: bold;
 }
 
-#loggedintext
+#loggedInText
 {
-  position: absolute;
-  left: 900px;
-  top: -3px;
+  padding: 0px;
 }
 
 .form-row {
@@ -149,12 +151,11 @@ padding: 0px;
 }
 
 .toolbarButton {
-  margin-top: 0px;
-  margin-left: 0px;
+  position: relative;
+  margin-left: 10px;
   padding: 0px;
-  position: absolute;
-  top: 16px;
   height: 32px;
+  top: -50px;
 	border-radius:5px;
 	cursor:pointer;
 	font-family:Arial;
