@@ -96,7 +96,7 @@ $(function() {
     },
     login: function() {
       loggedInUser.set("name", $("#username").val());
-      this.loadDisplayMotionsScreen();
+      this.loadAddMotionsScreen();
     },
     loadDisplayMotionsScreen: function() {
       this.showTopToolbarView();
