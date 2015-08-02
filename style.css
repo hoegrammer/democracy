@@ -107,7 +107,7 @@ padding: 0px;
 
 #avatar {
   position: relative;
-  left: 77px;
+  left: 97px;
   top: -40px;
   border-radius: 5px;
 }
@@ -146,8 +146,7 @@ left: 220px;
 }
 
 .form-row {
-  margin-top: 1em;
-  margin-bottom: 1em;
+  padding: 4px;
 }
 
 .toolbarButton {
