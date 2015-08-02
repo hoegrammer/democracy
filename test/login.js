@@ -34,7 +34,7 @@ describe("login", function() {
     });
 
     it("should go to motions screen", function() {
-      expect($("textarea").length).to.equal(1);
+      
       expect($("table").length).to.equal(1);
     });
 
@@ -43,11 +43,11 @@ describe("login", function() {
     });
 
     it("should display the name of the logged-in user", function() {
-      expect($("#loginStatus #name").html()).to.equal("Logged in user: Fred");
+      expect($("#loginStatus #name").html()).to.equal("Fred");
     });
 
     it("should display an avatar", function() {
-      expect($("#loginStatus img").length).to.equal(1);
+      expect($("#avatar").length).to.equal(1);
     });
 
     describe("Logging out", function() {
