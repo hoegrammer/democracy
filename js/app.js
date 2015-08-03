@@ -66,7 +66,7 @@ $(function() {
       alert("voted No!");
     },
     voteAbstain: function() {
-      alert("abstained!");
+      alert("Abstained!");
     }
   });
 
@@ -89,8 +89,8 @@ $(function() {
       "click #addMotionsButton": function() {
         this.triggerMethod("loadAddMotionsScreen");
       },
-      "click #displayMotionsButton": function() {
-        this.triggerMethod("loadDisplayMotionsScreen");
+      "click #manageMotionsButton": function() {
+        this.triggerMethod("loadManageMotionsScreen");
       },
       "click #voteButton": function() {
         this.triggerMethod("loadVotingScreen");
@@ -119,7 +119,7 @@ $(function() {
     childEvents: {
       login: "login",
       loadAddMotionsScreen: "loadAddMotionsScreen",
-      loadDisplayMotionsScreen: "loadDisplayMotionsScreen",
+      loadManageMotionsScreen: "loadManageMotionsScreen",
       loadVotingScreen: "loadVotingScreen",
       logout: "logout"
     },
@@ -127,7 +127,7 @@ $(function() {
       loggedInUser.set("name", $("#username").val());
       this.loadAddMotionsScreen();
     },
-    loadDisplayMotionsScreen: function() {
+    loadManageMotionsScreen: function() {
       this.showTopToolbarView();
       this.top.empty();
       this.main.show(new ProposalList({collection: proposals}));
