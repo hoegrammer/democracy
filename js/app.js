@@ -42,6 +42,34 @@ $(function() {
     }
   });
 
+  // View for the list of proposals
+  var ProposalList = Marionette.CompositeView.extend({
+    tagName: "div",
+    template: require("../templates/proposal-list.html"),
+    childView: ProposalView,
+    childViewContainer: ".childViewContainer"
+  });
+
+  // View for a single votable proposals (a row in the proposals table)
+  var VotingView = Marionette.ItemView.extend({
+    tagName: "tr",
+    template: require("../templates/voting-view.html"),
+    events: {
+      "click button": "delete"
+    },
+    delete: function() {
+      proposals.remove(this.model);
+    }
+  });
+// View for the list of votable proposals
+  var VotingList = Marionette.CompositeView.extend({
+    tagName: "div",
+    template: require("../templates/voting-list.html"),
+    childView: VotingView,
+    childViewContainer: ".childViewContainer"
+  });
+
+  
   // View for login info (tracks logged in user)
   var TopToolbarView = Marionette.ItemView.extend({
     tagName: "div",
@@ -62,14 +90,6 @@ $(function() {
         this.triggerMethod("logout");
       }
     }
-  });
-
-  // View for the list of proposals
-  var ProposalList = Marionette.CompositeView.extend({
-    tagName: "div",
-    template: require("../templates/proposal-list.html"),
-    childView: ProposalView,
-    childViewContainer: ".childViewContainer"
   });
 
   var LoginForm = Marionette.ItemView.extend({
@@ -111,7 +131,7 @@ $(function() {
     loadVotingScreen: function() {
       this.showTopToolbarView();
       this.top.empty();
-      this.main.show(new ProposalList({collection: proposals}));
+      this.main.show(new VotingList({collection: proposals}));
     },
     logout: function() {
       this.header.empty();
