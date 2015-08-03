@@ -55,12 +55,21 @@ $(function() {
     tagName: "tr",
     template: require("../templates/voting-view.html"),
     events: {
-      "click button": "delete"
+      "click #voteYesButton": "voteYes",
+      "click #voteNoButton": "voteNo",
+      "click #voteAbstainButton": "voteAbstain",
     },
-    delete: function() {
-      proposals.remove(this.model);
+    voteYes: function() {
+      alert("voted Yes!");
+    },
+    voteNo: function() {
+      alert("voted No!");
+    },
+    voteAbstain: function() {
+      alert("abstained!");
     }
   });
+
 // View for the list of votable proposals
   var VotingList = Marionette.CompositeView.extend({
     tagName: "div",
