@@ -1,7 +1,7 @@
 # democracy
 Online voting app
 
-##Status: 
+##Status
 
 Alpha
 
