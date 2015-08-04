@@ -127,14 +127,6 @@ left: 120px;
 left: 220px;
 }
 
-#loginStatus {
-  position: relative;
-  height: 50px;
-  float: right;
-  margin-right: 20px;
-  top: -47px;
-}
-
 #name {
   padding: 0px;
   font-weight: bold;
