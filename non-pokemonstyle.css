@@ -1,5 +1,5 @@
 body {
-    background-color: #ffffff;
+    background-color: #507F86;
     margin: 10px;
     padding: 10px;
 }
@@ -9,7 +9,7 @@ body {
   min-height: 568px;
   max-height: 768px;
   width: expression( document.body.clientWidth >=1000 ? "1200px" :     (document.body.clientWidth <= 920 ? 920 : document.body.clientWidth));
- border: 1px solid #bd4141;
+ border: 1px solid #A07F8C;
 }
 #app {
 margin: 0 auto;
@@ -30,7 +30,7 @@ td, th {
 }
 
 th {
-  border: 1px solid #186294;
+  border: 1px solid white;
 }
 
 div {
@@ -57,11 +57,11 @@ button {
   margin-left: 20px;
   width: 120px;
   height: 40px;
-  background-color:#737b7b;
+  background-color:#3b8234;
   border-radius: 15px;
-	border:1px solid #cdb47b;
+	border:1px solid #FFFFFF;
 	cursor:pointer;
-	color:#f6f6f6;
+	color:#ffffff;
 	font-family:Arial;
 	font-size:13px;
 	padding:10px 14px;
@@ -80,7 +80,7 @@ button:focus {
   outline:0 !important;}
 
 button:hover {
-	background-color:#5a4120;
+	background-color:#375e22;
 }
 
 input {
@@ -97,7 +97,7 @@ padding: 0px;
   top: -40px;
   border-bottom-style: ridge;
   border-width: 1px;
-  border-color: #ee6241;
+  border-color: #91A7AA;
   height: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
