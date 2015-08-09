@@ -10,6 +10,7 @@ body {
   max-height: 768px;
   width: expression( document.body.clientWidth >=1000 ? "1200px" :     (document.body.clientWidth <= 920 ? 920 : document.body.clientWidth));
  border: 1px solid #bd4141;
+ background: #41b4ee;
 }
 #app {
 margin: 0 auto;
@@ -57,11 +58,11 @@ button {
   margin-left: 20px;
   width: 120px;
   height: 40px;
-  background-color:#737b7b;
+  background-color:#ee83b4;
   border-radius: 15px;
-	border:1px solid #cdb47b;
+	border:1px solid #fcfefc;
 	cursor:pointer;
-	color:#f6f6f6;
+	color:#ffffff;
 	font-family:Arial;
 	font-size:13px;
 	padding:10px 14px;
