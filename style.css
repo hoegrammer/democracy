@@ -107,9 +107,8 @@ padding: 0px;
 }
 
 #avatar {
+  top: 2px;
   position: relative;
-  top: 6px;
-  margin-left: 4px;
   border-radius: 5px;
 }
 
@@ -137,6 +136,7 @@ padding: 0px;
 }
 
 #name {
+  margin-right: 10px;
   padding: 0px;
   font-weight: bold;
 }
@@ -152,7 +152,7 @@ padding: 0px;
 .toolbarButton {
   position: relative;
   margin-right: 20px;
-  margin-left: 30px;
+  margin-left: 20px;
   width: 140px;
   padding: 0px;
   height: 32px;
