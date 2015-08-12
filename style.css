@@ -10,7 +10,7 @@ body {
   max-height: 768px;
   width: expression( document.body.clientWidth >=1000 ? "1200px" :     (document.body.clientWidth <= 920 ? 920 : document.body.clientWidth));
  border: 1px solid #bd4141;
- background: #41b4ee;
+ background: #626a20;
 }
 #app {
 margin: 0 auto;
@@ -31,7 +31,7 @@ td, th {
 }
 
 th {
-  border: 1px solid #186294;
+  border: 1px solid #f6de8b;
 }
 
 div {
@@ -42,7 +42,7 @@ textarea {
   border-radius: 10px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  border: 1px dashed grey;
+  border: 1px dashed #f6de8b;
   width: 100%;
   height: 5em;
   font-size: 2em;
@@ -58,7 +58,7 @@ button {
   margin-left: 20px;
   width: 120px;
   height: 40px;
-  background-color:#ee83b4;
+  background-color:#8b9441;
   border-radius: 15px;
 	border:1px solid #fcfefc;
 	cursor:pointer;
@@ -81,7 +81,7 @@ button:focus {
   outline:0 !important;}
 
 button:hover {
-	background-color:#5a4120;
+	background-color:#414a10;
 }
 
 input {
@@ -98,7 +98,7 @@ padding: 0px;
   top: -40px;
   border-bottom-style: ridge;
   border-width: 1px;
-  border-color: #ee6241;
+  border-color: #ffffff;
   height: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
