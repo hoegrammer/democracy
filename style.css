@@ -108,24 +108,32 @@ padding: 0px;
 
 #avatar {
   position: relative;
-  left: 77px;
-  top: -40px;
+  top: 6px;
+  margin-left: 4px;
   border-radius: 5px;
 }
 
+#loginStatus {
+  position: relative;
+  top: -42px;
+  float: right;
+  padding: 0px;
+}
 #addMotionsButton {
 }
 
 #manageMotionsButton {
-left: 80px;
+  float: left;
 }
 
 #voteButton {
-left: 120px;
+  position: relative;
+  overflow:auto;
 }
 
 #logoutButton {
-left: 220px;
+  position: relative;
+  overflow:auto;
 }
 
 #name {
@@ -133,8 +141,7 @@ left: 220px;
   font-weight: bold;
 }
 
-#loggedInText
-{
+#loggedInText {
   padding: 0px;
 }
 
@@ -144,7 +151,8 @@ left: 220px;
 
 .toolbarButton {
   position: relative;
-  margin-left: 10px;
+  margin-right: 20px;
+  margin-left: 30px;
   width: 140px;
   padding: 0px;
   height: 32px;
