@@ -9,7 +9,7 @@ body {
   min-height: 568px;
   max-height: 768px;
   width: expression( document.body.clientWidth >=1000 ? "1200px" :     (document.body.clientWidth <= 920 ? 920 : document.body.clientWidth));
- border: 1px solid #ffffff;
+ border: 1px solid #000000;
  background: #d5b45a;
 }
 #app {
@@ -63,8 +63,8 @@ button {
 	border:1px solid #737373;
 	cursor:pointer;
 	color:#111111;
-	font-family: sans-serif;
-	font-size:13px;
+	font-family: Arial;
+	font-size:14px;
 	padding:10px 14px;
 	text-decoration:none;
 	font-weight: bold;
@@ -98,7 +98,7 @@ padding: 0px;
   top: -40px;
   border-bottom-style: ridge;
   border-width: 1px;
-  border-color: #ffffff;
+  border-color: #f6de8b;
   height: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
