@@ -9,7 +9,7 @@ body {
   min-height: 568px;
   max-height: 768px;
   width: expression( document.body.clientWidth >=1000 ? "1200px" :     (document.body.clientWidth <= 920 ? 920 : document.body.clientWidth));
- border: 1px solid #000000;
+ border: 1px solid #3E3E3E;
  background: #d5b45a;
 }
 #app {
@@ -60,7 +60,7 @@ button {
   height: 40px;
   background-color:#cdcdcd;
   border-radius: 15px;
-	border:1px solid #737373;
+	border:1px solid #3E3E3E;
 	cursor:pointer;
 	color:#111111;
 	font-family: Arial;
