@@ -119,10 +119,11 @@ padding: 0px;
   padding: 0px;
 }
 #addMotionsButton {
+  float: left;
 }
 
 #manageMotionsButton {
-  float: left;
+  overflow: auto;
 }
 
 #voteButton {
