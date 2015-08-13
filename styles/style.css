@@ -1,0 +1,166 @@
+body {
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 10px;
+}
+#container {
+  min-width: 1024px;
+  max-width: 1920px;
+  min-height: 568px;
+  max-height: 768px;
+  width: expression( document.body.clientWidth >=1000 ? "1200px" :     (document.body.clientWidth <= 920 ? 920 : document.body.clientWidth));
+ border: 1px solid #3E3E3E;
+ background: #d5b45a;
+}
+#app {
+margin: 0 auto;
+width: 95%
+}
+
+table {
+  border-radius: 10px;
+  border: 1px dashed grey;
+  width: 100%;
+}
+
+td, th {
+  border-radius: 10px;
+  padding: 1em;
+  border: 1px dashed white;
+  font-size: 2em;
+}
+
+th {
+  border: 1px solid #f6de8b;
+}
+
+div {
+  padding: 1em;
+}
+
+textarea {
+  border-radius: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 1px dashed #737373;
+  width: 100%;
+  height: 5em;
+  font-size: 2em;
+}
+
+input, button {
+  height: 50px;
+}
+
+
+button {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 120px;
+  height: 40px;
+  background-color:#cdcdcd;
+  border-radius: 15px;
+	border:1px solid #3E3E3E;
+	cursor:pointer;
+	color:#111111;
+	font-family: Arial;
+	font-size:14px;
+	padding:10px 14px;
+	text-decoration:none;
+	font-weight: bold;
+}
+
+button::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner {
+padding: 0 !important;
+border: 0 none !important;}
+
+button:focus {
+  outline:0 !important;}
+
+button:hover {
+	background-color:#626a20;
+}
+
+input {
+  width: 10em;
+  font-size: 2em;
+}
+
+#header {
+padding: 0px;
+}
+
+#topToolbar {
+  margin-bottom: 70px;
+  top: -40px;
+  border-bottom-style: ridge;
+  border-width: 1px;
+  border-color: #f6de8b;
+  height: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#avatar {
+  top: 2px;
+  position: relative;
+  border-radius: 5px;
+}
+
+#loginStatus {
+  position: relative;
+  top: -42px;
+  float: right;
+  padding: 0px;
+}
+#addMotionsButton {
+  float: left;
+}
+
+#manageMotionsButton {
+  overflow: auto;
+}
+
+#voteButton {
+  position: relative;
+  overflow:auto;
+}
+
+#logoutButton {
+  position: relative;
+  overflow:auto;
+}
+
+#name {
+  margin-right: 10px;
+  padding: 0px;
+  font-weight: bold;
+}
+
+#loggedInText {
+  padding: 0px;
+}
+
+.form-row {
+  padding: 4px;
+}
+
+.toolbarButton {
+  position: relative;
+  margin-right: 20px;
+  margin-left: 20px;
+  width: 140px;
+  padding: 0px;
+  height: 32px;
+  top: -50px;
+	border-radius:5px;
+	cursor:pointer;
+	font-family:Arial;
+	font-size:14px;
+	text-decoration:none;
+}
