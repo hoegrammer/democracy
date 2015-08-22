@@ -15,7 +15,13 @@ $(function() {
   var MotionForm = Marionette.ItemView.extend({
     template: require("../templates/motion-form.html"),
     events: {
-      "click button": "addMotion"
+      "click button": "addMotion",
+      "input textarea": "toggleButton"
+    },
+
+    toggleButton: function() {
+      var text = this.$("textarea").val();
+      this.$("button").prop('disabled', text == "");
     },
 
     addMotion: function() {

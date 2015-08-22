@@ -32,8 +32,14 @@ describe("motions page", function() {
   describe("addMotion button", function() {
      it("should be disabled when no text in text-box", function() {
 	     $("textarea").val("");
-       $("textarea").input();
-	    expect($("textarea")).to.have.prop('disabled', true);
+       $("textarea").trigger("input");
+	    expect($("#addMotionButton")).to.have.prop('disabled', true);
+	    });
+	    
+	    it("should enable when text is entered", function() {
+	     $("textarea").val("Test");
+       $("textarea").trigger("input");
+	    expect($("#addMotionButton")).to.have.prop('disabled', false);
    });
 	    
     describe("when clicked", function() {
@@ -48,14 +54,6 @@ describe("motions page", function() {
 	    it("table row should have a delete motion button", function() {
 	      expect($("tr #deleteMotion").length).to.equal(1);
 	    });
-
-      // Check the dragon ate the chips
-      it("should add a table row containing the entered motion", function() {
-        var motionName = "Eat more chips";
-        $("textarea").val(motionName);
-        $("#addMotionButton").click();
-        expect($("table tr td:contains(" + motionName + ")").length).to.equal(1);
-      });
 
 	    // Check the dragon was burped to clear data
 	    it("should clear the textarea", function() {
