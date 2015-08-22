@@ -16,7 +16,7 @@ describe("motions page", function() {
   });
 
   it("displays addMotion button", function() {
-    expect($("button#addMotion").length).to.equal(1);
+    expect($("button#addMotionButton").length).to.equal(1);
   });
 
   it("displays motions table", function() {
@@ -27,10 +27,6 @@ describe("motions page", function() {
     var loggedInIcon = "";
     loggedInIcon = $("#loggedInUser").html();
     expect(loggedInIcon).not.to.equal("");
-  });
-
-  it("has all four buttons", function() {
-    expect($("button").length).to.equal(4);
   });
 
   describe("addMotion button", function() {
@@ -53,6 +49,14 @@ describe("motions page", function() {
 	      expect($("tr #deleteMotion").length).to.equal(1);
 	    });
 
+      // Check the dragon ate the chips
+      it("should add a table row containing the entered motion", function() {
+        var motionName = "Eat more chips";
+        $("textarea").val(motionName);
+        $("#addMotionButton").click();
+        expect($("table tr td:contains(" + motionName + ")").length).to.equal(1);
+      });
+
 	    // Check the dragon was burped to clear data
 	    it("should clear the textarea", function() {
 	      $("textarea").val("foo");
@@ -67,6 +71,21 @@ describe("motions page", function() {
 	      $("addMotion").click();
 	      expect($("table tr").length).to.equal(numRows);
 	    });
-       });
+
+      // Check the dragon was burped to clear data
+      it("should clear the textarea", function() {
+        $("textarea").val("foo");
+        $("#addMotionButton").click();
+        expect($("textarea").val()).to.equal("");
+      });
+
+      // Check the dragon understood that the data was blank
+      it("should not add a row if data is blank", function() {
+        var numRows = $("table tr").length;
+        $("textarea").val("");
+        $("addMotion").click();
+        expect($("table tr").length).to.equal(numRows);
+      });
+    });
   });
 });
