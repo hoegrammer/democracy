@@ -16,7 +16,7 @@ describe("motions page", function() {
   });
 
   it("displays addMotion button", function() {
-    expect($("button#addMotion").length).to.equal(1);
+    expect($("button#addMotionButton").length).to.equal(1);
   });
 
   it("displays motions table", function() {
@@ -29,17 +29,13 @@ describe("motions page", function() {
     expect(loggedInIcon).not.to.equal("");
   });
 
-  it("has all four buttons", function() {
-    expect($("button").length).to.equal(4);
-  });
-
   describe("addMotion button", function() {
 
     // Check the dragon ate the chips
     it("should add a table row containing the entered motion", function() {
       var motionName = "Eat more chips";
       $("textarea").val(motionName);
-      $("#addMotion").click();
+      $("#addMotionButton").click();
       expect($("table tr td:contains(" + motionName + ")").length).to.equal(1);
     });
 
@@ -50,7 +46,7 @@ describe("motions page", function() {
     // Check the dragon was burped to clear data
     it("should clear the textarea", function() {
       $("textarea").val("foo");
-      $("#addMotion").click();
+      $("#addMotionButton").click();
       expect($("textarea").val()).to.equal("");
     });
 
