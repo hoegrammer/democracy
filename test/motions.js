@@ -41,7 +41,7 @@ describe("motions page", function() {
 	    it("should add a table row containing the entered motion", function() {
 	      var motionName = "Eat more chips";
 	      $("textarea").val(motionName);
-	      $("#addMotion").click();
+	      $("#addMotionButton").click();
 	      expect($("table tr td:contains(" + motionName + ")").length).to.equal(1);
 	    });
 
@@ -60,7 +60,7 @@ describe("motions page", function() {
 	    // Check the dragon was burped to clear data
 	    it("should clear the textarea", function() {
 	      $("textarea").val("foo");
-	      $("#addMotion").click();
+	      $("#addMotionButton").click();
 	      expect($("textarea").val()).to.equal("");
 	    });
 
@@ -68,7 +68,7 @@ describe("motions page", function() {
 	    it("should not add a row if data is blank", function() {
 	      var numRows = $("table tr").length;
 	      $("textarea").val("");
-	      $("addMotion").click();
+	      $("addMotionButton").click();
 	      expect($("table tr").length).to.equal(numRows);
 	    });
 
@@ -83,7 +83,7 @@ describe("motions page", function() {
       it("should not add a row if data is blank", function() {
         var numRows = $("table tr").length;
         $("textarea").val("");
-        $("addMotion").click();
+        $("addMotionButton").click();
         expect($("table tr").length).to.equal(numRows);
       });
     });
