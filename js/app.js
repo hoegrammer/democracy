@@ -8,20 +8,20 @@ $(function() {
 
   var loggedInUser = new Backbone.Model();
 
-  // Collection of proposals
-  var proposals = new Backbone.Collection();
+  // Collection of motions
+  var motions = new Backbone.Collection();
 
-  // View for the Add Proposal form
-  var ProposalForm = Marionette.ItemView.extend({
-    template: require("../templates/proposal-form.html"),
+  // View for the Add Motion form
+  var MotionForm = Marionette.ItemView.extend({
+    template: require("../templates/motion-form.html"),
     events: {
-      "click button": "addProposal"
+      "click button": "addMotion"
     },
 
-    addProposal: function() {
+    addMotion: function() {
       var text = this.$("textarea").val();
       if (text !== "") {
-        proposals.add({
+        motions.add({
           name: text
         });
       }
@@ -30,27 +30,27 @@ $(function() {
   });
 
 
-  // View for a single proposal (a row in the proposals table)
-  var ProposalView = Marionette.ItemView.extend({
+  // View for a single motion (a row in the motions table)
+  var MotionView = Marionette.ItemView.extend({
     tagName: "tr",
-    template: require("../templates/proposal-view.html"),
+    template: require("../templates/motion-view.html"),
     events: {
       "click button": "delete"
     },
     delete: function() {
-      proposals.remove(this.model);
+      motions.remove(this.model);
     }
   });
 
-  // View for the list of proposals
-  var ProposalList = Marionette.CompositeView.extend({
+  // View for the list of motions
+  var MotionList = Marionette.CompositeView.extend({
     tagName: "div",
-    template: require("../templates/proposal-list.html"),
-    childView: ProposalView,
+    template: require("../templates/motion-list.html"),
+    childView: MotionView,
     childViewContainer: ".childViewContainer"
   });
 
-  // View for a single votable proposals (a row in the proposals table)
+  // View for a single votable motions (a row in the motions table)
   var VotingView = Marionette.ItemView.extend({
     tagName: "tr",
     template: require("../templates/voting-view.html"),
@@ -70,7 +70,7 @@ $(function() {
     }
   });
 
-// View for the list of votable proposals
+// View for the list of votable motions
   var VotingList = Marionette.CompositeView.extend({
     tagName: "div",
     template: require("../templates/voting-list.html"),
@@ -130,17 +130,17 @@ $(function() {
     loadManageMotionsScreen: function() {
       this.showTopToolbarView();
       this.top.empty();
-      this.main.show(new ProposalList({collection: proposals}));
+      this.main.show(new MotionList({collection: motions}));
     },
     loadAddMotionsScreen: function() {
       this.showTopToolbarView();
-      this.top.show(new ProposalForm());
-      this.main.show(new ProposalList({collection: proposals}));
+      this.top.show(new MotionForm());
+      this.main.show(new MotionList({collection: motions}));
     },
     loadVotingScreen: function() {
       this.showTopToolbarView();
       this.top.empty();
-      this.main.show(new VotingList({collection: proposals}));
+      this.main.show(new VotingList({collection: motions}));
     },
     logout: function() {
       this.header.empty();

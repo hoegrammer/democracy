@@ -37,10 +37,10 @@ describe("motions page", function() {
 
     // Check the dragon ate the chips
     it("should add a table row containing the entered motion", function() {
-      var proposalName = "Eat more chips";
-      $("textarea").val(proposalName);
+      var motionName = "Eat more chips";
+      $("textarea").val(motionName);
       $("#addMotion").click();
-      expect($("table tr td:contains(" + proposalName + ")").length).to.equal(1);
+      expect($("table tr td:contains(" + motionName + ")").length).to.equal(1);
     });
 
     it("table row should have a delete motion button", function() {
